@@ -1,10 +1,17 @@
 import Component from 'react-pure-render/component';
 import React from 'react';
 import { VictoryPie, VictoryLabel } from "victory";
+import { connect } from 'react-redux';
+//import { fetchStaticPieChartData } from '../actions';
+import * as actions from '../actions';
 
+class StaticCropPieChart extends Component {
+  componentWillMount() {
+    this.props.fetchStaticPieChartData();
+  }
 
-export default class StaticCropPieChart extends Component {
   render() {
+    const dataPulledFromFireBase = this.props.staticPieCharts.data;
     const divStyle = {
       backgroundColor: 'green',
       maxWidth: '450px'
@@ -30,12 +37,7 @@ export default class StaticCropPieChart extends Component {
               fontWeight: "bold"
             }
           }}
-          data={[
-            {x: "Tomatoes", y: 10},
-            {x: "Bell Peppers", y: 1},
-            {x: "Hot Peppers", y: 15},
-            {x: "Cucumbers", y: 20},
-          ]}
+          data={dataPulledFromFireBase}
         />
         <svg>
           <VictoryLabel
@@ -45,7 +47,7 @@ export default class StaticCropPieChart extends Component {
             textAnchor="start"
             verticalAnchor="start"
           >
-            Tomatoes: 10lbs
+            Tomatoes: 20lbs
           </VictoryLabel>
           <VictoryLabel
             x={10}
@@ -54,7 +56,7 @@ export default class StaticCropPieChart extends Component {
             textAnchor="start"
             verticalAnchor="start"
           >
-            Bell Peppers: 1lbs
+            Bell Peppers: 10lbs
           </VictoryLabel>
           <VictoryLabel
             x={10}
@@ -78,5 +80,12 @@ export default class StaticCropPieChart extends Component {
       </div>
     );
   }
-
 };
+
+function mapStateToProps(state) {
+  return {
+    staticPieCharts: state.staticPieCharts
+  };
+}
+
+export default connect(mapStateToProps, actions)(StaticCropPieChart);

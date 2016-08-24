@@ -35,4 +35,4 @@ const layouts = (state = [], action) => {
   }
 }
 
-export default layouts
+export default layouts;

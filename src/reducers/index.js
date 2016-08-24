@@ -1,10 +1,12 @@
-import { combineReducers } from 'redux'
-import layouts from './layouts'
-import visibilityFilter from './visibilityFilter'
+import { combineReducers } from 'redux';
+import layouts from './layouts';
+import visibilityFilter from './visibilityFilter';
+import staticPieCharts from './staticPieCharts';
 
 const gardenApp = combineReducers({
   layouts,
-  visibilityFilter
+  visibilityFilter,
+  staticPieCharts
 })
 
 export default gardenApp;

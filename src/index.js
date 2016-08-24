@@ -2,15 +2,16 @@ import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import todoApp from './reducers'
+import { createStore, applyMiddleware } from 'redux';
+import gardenApp from './reducers'
 import App from './App';
 import './index.css';
+import reduxThunk from 'redux-thunk';
 
-let store = createStore(todoApp)
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 render(
-  <Provider store={store}>
+  <Provider store={createStoreWithMiddleware(gardenApp)}>
     <App />
   </Provider>,
   document.getElementById('root')

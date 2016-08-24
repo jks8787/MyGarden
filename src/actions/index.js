@@ -20,3 +20,19 @@ export const toggleLayout = (id) => {
     id
   }
 }
+// Static Pie Chart
+import firebase from 'firebase';
+import config from '../config/environment';
+
+const staticPieChartData = firebase.initializeApp(config.firebase);
+
+export const fetchStaticPieChartData = () => {
+  return dispatch => {
+    staticPieChartData.database().ref('/chart').on('value', snapshot => {
+      dispatch({
+        type: 'FETCH_STATIC_PIE_CHART_DATA',
+        payload: snapshot.val(),
+      });
+    });
+  };
+}
