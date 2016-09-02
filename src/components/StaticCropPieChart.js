@@ -1,5 +1,4 @@
-import Component from 'react-pure-render/component';
-import React from 'react';
+import React, { Component } from 'react';
 import { VictoryPie, VictoryLabel } from "victory";
 import { connect } from 'react-redux';
 //import { fetchStaticPieChartData } from '../actions';

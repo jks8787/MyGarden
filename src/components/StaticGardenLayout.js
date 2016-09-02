@@ -1,5 +1,4 @@
-import Component from 'react-pure-render/component';
-import React from 'react';
+import React, { Component } from 'react';
 
 export default class StaticGardenLayout extends Component {
 
