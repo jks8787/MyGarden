@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Layout from './Layout'
 
 const LayoutList = ({ layouts, onLayoutClick }) => (
-  <ul>
+  <ul className='columns'>
     {layouts.map(layout =>
       <Layout
         key={layout.id}

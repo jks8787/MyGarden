@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { VictoryPie, VictoryLabel } from "victory";
 import { connect } from 'react-redux';
-//import { fetchStaticPieChartData } from '../actions';
 import * as actions from '../actions';
 
-class StaticCropPieChart extends Component {
+class CropPieChartWithDataFromFirebase extends Component {
   componentWillMount() {
     this.props.fetchStaticPieChartData();
   }
 
   render() {
-    const dataPulledFromFireBase = this.props.staticPieCharts.data;
+    const dataPulledFromFireBase = this.props.pieCharts.data;
     const divStyle = {
       backgroundColor: 'green',
       maxWidth: '450px'
@@ -18,7 +17,7 @@ class StaticCropPieChart extends Component {
 
     return (
       <div
-        className="static-pie-chart"
+        className="pie-chart"
         style={divStyle}
       >
         <h2> Static Crop Pie Chart </h2>
@@ -83,8 +82,8 @@ class StaticCropPieChart extends Component {
 
 function mapStateToProps(state) {
   return {
-    staticPieCharts: state.staticPieCharts
+    pieCharts: state.pieCharts
   };
 }
 
-export default connect(mapStateToProps, actions)(StaticCropPieChart);
+export default connect(mapStateToProps, actions)(CropPieChartWithDataFromFirebase);

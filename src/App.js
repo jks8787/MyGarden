@@ -2,16 +2,16 @@ import React from 'react'
 import Footer from './components/Footer.js';
 import AddLayout from './containers/AddLayout.js';
 import VisibleLayoutList from './containers/VisibleLayoutList.js';
-import StaticGardenLayout from './components/StaticGardenLayout.js';
-import StaticCropPieChart from './components/StaticCropPieChart.js';
+// the below is a static garden layout ( exmaple of one you can produce with the form )
+// import StaticGardenLayout from './components/StaticGardenLayout.js';
+import CropPieChartWithDataFromFirebase from './components/CropPieChartWithDataFromFirebase.js';
 
 const App = () => (
   <div>
     <AddLayout />
     <VisibleLayoutList />
     <Footer />
-    <StaticGardenLayout />
-    <StaticCropPieChart />
+    <CropPieChartWithDataFromFirebase />
   </div>
 )
 

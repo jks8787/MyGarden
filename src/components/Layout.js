@@ -57,7 +57,7 @@ const Layout = function({ onClick, completed, text }) {
   const dataForGardenLayout = setUpLayout(text);
   console.log('dataForGardenLayout', dataForGardenLayout);
   return (
-    <div className={`layout-completed-${completed}`}>
+    <div className={`layout-completed-${completed} column`}>
       <div className={`layout-completed-${completed}__svg-wrap`}>
         <svg width={dataForGardenLayout.totalWidth - dataForGardenLayout.constOffset} height={dataForGardenLayout.totalHeight - dataForGardenLayout.constOffset}>
         <g>
